@@ -1,4 +1,18 @@
-import { PhoneShot } from "@/components/Shots";
+function HeroPhone({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className="w-[124px] sm:w-[144px]">
+      <div className="rounded-[30px] bg-zinc-500 p-[6px] shadow-[0_22px_44px_-16px_rgba(0,0,0,0.85)]">
+        <div className="relative aspect-[9/19.5] overflow-hidden rounded-[24px] bg-black ring-1 ring-black/60">
+          <img
+            src={src}
+            alt={alt}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function HeroWeb({ src }: { src: string }) {
   return (
@@ -43,13 +57,13 @@ export function HeroVisual() {
         <HeroWeb src="/work/export-web-01.png" />
       </div>
       <div className="absolute bottom-2 left-[4%] z-20">
-        <PhoneShot src="/work/ti-phone-trips.png" alt="TrackIFTA" />
+        <HeroPhone src="/work/ti-phone-trips.png" alt="TrackIFTA" />
       </div>
       <div className="absolute bottom-0 left-[30%] z-30">
-        <PhoneShot src="/work/sd-phone-find-trucks.png" alt="ShipperDock" />
+        <HeroPhone src="/work/sd-phone-find-trucks.png" alt="ShipperDock" />
       </div>
       <div className="absolute bottom-3 right-[2%] z-10 hidden sm:block">
-        <PhoneShot src="/work/tw-phone-on-road.png" alt="TruckerWire" />
+        <HeroPhone src="/work/tw-phone-on-road.png" alt="TruckerWire" />
       </div>
     </div>
   );
