@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64" fill="none" role="img" aria-label="CutStudio">
+  <rect x="4" y="14" width="36" height="36" rx="8" fill="#18181b" stroke="#3f3f46"/>
+  <path d="M16 22h12M16 32h20M16 42h8" stroke="#4ea3ff" stroke-width="2.2" stroke-linecap="round"/>
+  <text x="52" y="42" fill="#f4f4f5" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="600">CutStudio</text>
+</svg>

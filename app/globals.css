@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  @apply bg-[#09090b] text-zinc-300 antialiased;
+  background-image:
+    radial-gradient(ellipse 70% 50% at 0% -10%, rgba(78, 163, 255, 0.2), transparent 50%),
+    radial-gradient(ellipse 50% 40% at 100% 0%, rgba(167, 139, 250, 0.18), transparent 48%),
+    radial-gradient(ellipse 40% 30% at 70% 100%, rgba(251, 191, 36, 0.08), transparent 50%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------- */
+/* Enterprise motion system — additive utilities, no color changes  */
+/* ---------------------------------------------------------------- */
+
+@keyframes oi-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes oi-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes oi-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes oi-pulse-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes oi-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes oi-shine-sweep {
+  0% {
+    transform: translateX(-130%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(230%) skewX(-12deg);
+  }
+}
+
+@keyframes oi-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Scroll reveal: JS toggles .is-visible via IntersectionObserver */
+.oi-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.oi-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oi-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Card lift + glow border on hover, layered on existing gradient cards */
+.oi-card {
+  position: relative;
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
+}
+.oi-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.55);
+}
+
+/* Animated shine sweep for primary buttons */
+.oi-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.oi-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+  transform: translateX(-130%) skewX(-12deg);
+  pointer-events: none;
+}
+.oi-shine:hover::after {
+  animation: oi-shine-sweep 0.9s ease forwards;
+}
+
+/* Gradient underline sweep for nav-style text links */
+.oi-underline {
+  position: relative;
+}
+.oi-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1.5px;
+  width: 0%;
+  background: linear-gradient(90deg, #22d3ee, #a78bfa);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.oi-underline:hover::after,
+.oi-underline[data-active="true"]::after {
+  width: 100%;
+}
+
+.oi-footer-link {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.oi-footer-link:hover {
+  color: #fff;
+  transform: translateX(3px);
+}
+.oi-footer-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -3px;
+  height: 1px;
+  background: linear-gradient(90deg, #22d3ee, #a78bfa);
+  transition: right 0.3s ease;
+}
+.oi-footer-link:hover::after {
+  right: 0;
+}
+
+@media (min-width: 640px) {
+  .oi-center-last > :last-child {
+    grid-column: 1 / -1;
+    width: calc(50% - 0.625rem);
+    justify-self: center;
+  }
+}
+
+/* Floating ambient orbs used behind hero-style sections */
+.oi-orb-float {
+  animation: oi-float 7s ease-in-out infinite;
+}
+.oi-orb-pulse {
+  animation: oi-pulse-glow 6s ease-in-out infinite;
+}
+
+/* High-contrast accent used in hero headlines */
+.oi-shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #22d3ee 0%,
+    #dff8ff 52%,
+    #a78bfa 100%
+  );
+  background-size: 100% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Marquee row for logo / tech-stack strips */
+.oi-marquee-track {
+  animation: oi-marquee 28s linear infinite;
+}
+.oi-marquee-wrap:hover .oi-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Staggered children delays for grids wrapped in Reveal groups */
+.oi-stagger > * {
+  opacity: 0;
+  animation: oi-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.oi-stagger > *:nth-child(1) { animation-delay: 0.02s; }
+.oi-stagger > *:nth-child(2) { animation-delay: 0.08s; }
+.oi-stagger > *:nth-child(3) { animation-delay: 0.14s; }
+.oi-stagger > *:nth-child(4) { animation-delay: 0.2s; }
+.oi-stagger > *:nth-child(5) { animation-delay: 0.26s; }
+.oi-stagger > *:nth-child(6) { animation-delay: 0.32s; }
+.oi-stagger > *:nth-child(7) { animation-delay: 0.38s; }
+.oi-stagger > *:nth-child(8) { animation-delay: 0.44s; }
+.oi-stagger > *:nth-child(9) { animation-delay: 0.5s; }
+.oi-stagger > *:nth-child(10) { animation-delay: 0.56s; }
+.oi-stagger > *:nth-child(11) { animation-delay: 0.62s; }
+.oi-stagger > *:nth-child(12) { animation-delay: 0.68s; }
+
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: #111 !important;
+  }
+}

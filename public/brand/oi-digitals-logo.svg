@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 96" fill="none" role="img" aria-label="OI Digitals">
+  <g font-family="Inter, Helvetica Neue, Arial, sans-serif">
+    <text
+      x="0"
+      y="48"
+      dominant-baseline="central"
+      font-size="72"
+      font-weight="600"
+      letter-spacing="-1.8"
+      fill="#4ea3ff"
+    >OI</text>
+    <text
+      x="168"
+      y="49"
+      dominant-baseline="central"
+      font-size="26"
+      font-weight="500"
+      letter-spacing="7.8"
+      fill="#e4e4e7"
+    >DIGITALS</text>
+  </g>
+</svg>

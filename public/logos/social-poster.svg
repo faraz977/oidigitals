@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" fill="none" role="img" aria-label="Social poster">
+  <rect width="240" height="64" rx="12" fill="#1e1b4b"/>
+  <rect x="16" y="18" width="22" height="28" rx="4" fill="#a78bfa"/>
+  <path d="M21 32h12M21 38h8" stroke="#1e1b4b" stroke-width="2" stroke-linecap="round"/>
+  <text x="48" y="38" fill="#c4b5fd" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="600">Social poster</text>
+</svg>
