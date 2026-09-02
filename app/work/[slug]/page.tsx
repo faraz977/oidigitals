@@ -168,6 +168,7 @@ export default async function WorkItemPage({ params }: Props) {
                   desks={desks}
                   name={item.name}
                   caseStudy={true}
+                  stackWeb={item.slug === "bizbill"}
                 />
               </div>
             </Reveal>

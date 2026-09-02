@@ -101,7 +101,7 @@ export function CaseStudy({
               desks={desks}
               name={item.name}
               preview
-              maxWebShots={item.slug === "bizbill" ? 1 : undefined}
+              stackWeb={item.slug === "bizbill"}
             />
           ) : item.logo ? (
             <LogoTile src={item.logo} alt={item.name} />

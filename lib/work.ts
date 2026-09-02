@@ -38,6 +38,7 @@ export function kindLabel(item: WorkItem): string {
   }
   if (item.confidential) return "Private";
   if (item.kind === "tool") return "Tool";
+  if (item.slug === "bizbill") return "Web app";
   return workSurface(item) === "app" ? "App" : "Website";
 }
 

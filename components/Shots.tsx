@@ -88,6 +88,7 @@ export function ShotRow({
   soft = false,
   maxWebShots,
   caseStudy = false,
+  stackWeb = false,
 }: {
   phones: string[];
   webs: string[];
@@ -97,12 +98,17 @@ export function ShotRow({
   soft?: boolean;
   maxWebShots?: number;
   caseStudy?: boolean;
+  stackWeb?: boolean;
 }) {
   const showPhones = preview ? phones.slice(0, 3) : phones;
   const showWebs = preview
     ? webs.slice(0, maxWebShots ?? (phones.length ? 2 : 3))
     : webs;
   const showDesks = preview ? desks.slice(0, 3) : desks;
+  const webGrid =
+    showWebs.length > 1 && !stackWeb
+      ? `grid w-full gap-2.5 sm:gap-3 md:gap-4 sm:grid-cols-2 ${caseStudy && showWebs.length % 2 === 1 ? "oi-center-last" : ""}`
+      : `grid gap-2.5 sm:gap-3 md:gap-4 ${preview ? "w-full" : "mx-auto max-w-2xl"}`;
 
   return (
     <div className="space-y-3 sm:space-y-4">
@@ -116,13 +122,7 @@ export function ShotRow({
         </div>
       ) : null}
       {showWebs.length > 0 ? (
-        <div
-          className={
-            showWebs.length > 1
-              ? `grid w-full gap-2.5 sm:gap-3 md:gap-4 sm:grid-cols-2 ${caseStudy && showWebs.length % 2 === 1 ? "oi-center-last" : ""}`
-              : `grid gap-2.5 sm:gap-3 md:gap-4 ${preview ? "w-full" : "mx-auto max-w-2xl"}`
-          }
-        >
+        <div className={webGrid}>
           {showWebs.map((src) => (
             <WebShot
               key={src}
