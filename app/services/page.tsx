@@ -187,13 +187,66 @@ export default function ServicesPage() {
 
         <ul className="oi-stagger mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
 
-          {SERVICES.map((service) => {
+          {SERVICES.slice(0, 6).map((service) => {
             const Icon = service.icon;
 
             return (
               <li
                 key={service.slug}
                 className={`oi-card group relative flex flex-col overflow-hidden rounded-2xl border bg-gradient-to-br p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_25px_60px_-25px_rgba(34,211,238,0.18)] ${service.tone}`}
+              >
+
+                {/* Hover glow */}
+                <div className="pointer-events-none absolute -right-16 -top-16 size-40 rounded-full bg-cyan-400/[0.06] blur-3xl transition-all duration-500 group-hover:bg-cyan-400/[0.14]" />
+
+                <span className="relative flex size-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.07] text-cyan-300 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:border-cyan-400/20">
+                  <Icon className="size-5" />
+                </span>
+
+                <h3 className="relative mt-5 text-lg font-medium text-white">
+                  {service.title}
+                </h3>
+
+                <p className="relative mt-2.5 flex-1 text-sm leading-relaxed text-zinc-400">
+                  {service.body}
+                </p>
+
+                <ul className="relative mt-5 flex flex-wrap gap-1.5">
+                  {service.tags.map((tag) => (
+                    <li
+                      key={tag}
+                      className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-[11px] text-zinc-300 transition-colors duration-300 group-hover:border-white/15"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href={`/contact?service=${service.slug}`}
+                  className="oi-underline relative mt-6 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-white"
+                >
+                  Learn more
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </Link>
+
+              </li>
+            );
+          })}
+
+        </ul>
+
+        <ul className="oi-stagger mt-5 flex flex-wrap justify-center gap-5">
+
+          {SERVICES.slice(6).map((service) => {
+            const Icon = service.icon;
+
+            return (
+              <li
+                key={service.slug}
+                className={`oi-card group relative flex w-full flex-col overflow-hidden rounded-2xl border bg-gradient-to-br p-6 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_25px_60px_-25px_rgba(34,211,238,0.18)] sm:w-auto lg:max-w-sm ${service.tone}`}
               >
 
                 {/* Hover glow */}
