@@ -356,22 +356,6 @@ export const WORK: WorkItem[] = [
     confidential: false,
   },
   {
-    slug: "truckstation",
-    name: "TruckStation",
-    kind: "product",
-    role: "Pakistan trucking marketplace",
-    oneLiner:
-      "Marketplace for carriers, shippers, and drivers in Pakistan, with live GPS tracking.",
-    story: [
-      "TruckStation is a Pakistan trucking marketplace. Carriers, shippers, and drivers each have an app. Search available trucks, share a live tracking link, and watch the fleet on a map.",
-      "Carriers manage equipment. Drivers share background GPS. Shippers search and book from the same network. Sign-in is phone OTP. There is a web admin panel for the operation.",
-    ],
-    scope: ["Mobile", "Admin", "Maps"],
-    stack: "Flutter, Expo, Flask, PostgreSQL",
-    logo: "/logos/truckstation.svg",
-    confidential: false,
-  },
-  {
     slug: "email-tool",
     name: "Email tool",
     kind: "tool",
@@ -561,4 +545,85 @@ export const WORK: WorkItem[] = [
     gallery: ["/work/imaginers-web-landing.png"],
     confidential: false,
   },
+  {
+  slug: "researchflow-ai",
+  name: "ResearchFlow AI",
+  kind: "product",
+  role: "Agentic AI research platform",
+  oneLiner:
+    "AI-powered research and knowledge intelligence platform for document analysis, evidence-based Q&A, research comparison, and gap discovery.",
+  story: [
+    "ResearchFlow AI is an Agentic AI research and knowledge intelligence platform designed to help researchers work with academic and technical documents.",
+    "Researchers can upload and organize documents, search their knowledge base using semantic retrieval, and ask questions that are answered using evidence from the underlying sources with citations.",
+    "The platform supports research comparison and identifies potential gaps, patterns, and unanswered areas across the available literature.",
+    "The system combines LLMs, retrieval-augmented generation, vector search, and agentic workflows to turn research papers into an interactive research workspace.",
+  ],
+  scope: [
+    "Web",
+    "AI",
+    "RAG",
+    "Agentic AI",
+    "Research Intelligence",
+  ],
+  stack:
+    "Next.js, FastAPI, Python, LangChain, LangGraph, Qdrant, Supabase, Docker",
+  logo: "/logos/researchflow-ai.png",
+  cover: "/work/RA_1.png",
+  coverKind: "web",
+  gallery: [
+    "/work/RA_1.png",
+    "/work/RA_2.png",
+    "/work/RA_3.png",
+    "/work/RA_4.png",
+  ],
+  confidential: false,
+},
+{
+  slug: "neuroflex",
+  name: "NeuroFlex",
+  kind: "product",
+  role: "Neurofeedback therapy platform",
+  oneLiner:
+    "Patient and therapist platform for neurofeedback therapy, including patient management, therapist workflows, appointments, and therapy sessions.",
+  story: [
+    "NeuroFlex is a neurofeedback therapy platform designed around the interaction between patients and therapists. It combines EEG-based neurofeedback with digital tools for managing the therapy workflow.",
+    "Patients can access their therapy experience through a mobile application, while therapists can manage patients, appointments, therapy sessions, and treatment-related information.",
+    "The platform connects EEG-based feedback with the therapy workflow, allowing therapy sessions to be conducted and tracked through an integrated digital environment.",
+    "The system uses an EMOTIV Insight EEG device, Unity for the neurofeedback experience, React for the web management interface, Flutter for the mobile application, and Firebase for backend services.",
+  ],
+  scope: [
+    "Web",
+    "Mobile",
+    "EEG",
+    "Neurofeedback",
+  ],
+  stack: "React, Flutter, Unity, Firebase, EMOTIV Insight EEG",
+  logo: "/logos/neuroflex.png",
+  cover: "/work/NF_1.png",
+  coverKind: "web",
+  gallery: [
+    "/work/NF_1.png",
+    "/work/NF_2.png",
+    "/work/NF_3.png",
+    "/work/NF_4.png",
+    "/work/NF_5.png",
+  ],
+  confidential: false,
+},
+{
+  slug: "truckstation",
+  name: "TruckStation",
+  kind: "product",
+  role: "Pakistan trucking marketplace",
+  oneLiner:
+    "Marketplace for carriers, shippers, and drivers in Pakistan, with live GPS tracking.",
+  story: [
+    "TruckStation is a Pakistan trucking marketplace. Carriers, shippers, and drivers each have an app. Search available trucks, share a live tracking link, and watch the fleet on a map.",
+    "Carriers manage equipment. Drivers share background GPS. Shippers search and book from the same network. Sign-in is phone OTP. There is a web admin panel for the operation.",
+  ],
+  scope: ["Mobile", "Admin", "Maps"],
+  stack: "Flutter, Expo, Flask, PostgreSQL",
+  logo: "/logos/truckstation.svg",
+  confidential: false,
+},
 ];

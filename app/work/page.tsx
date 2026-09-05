@@ -1,7 +1,7 @@
 
 import type { Metadata } from "next";
 import { CaseStudy } from "@/components/CaseStudy";
-import { getWork, workList, workSurface } from "@/lib/work";
+import { workList, workSurface } from "@/lib/work";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -20,10 +20,10 @@ export default function WorkPage() {
     (item) =>
       workSurface(item) === "web" &&
       item.kind !== "tool" &&
-      item.slug !== "meridian-assist",
+      !item.scope.includes("AI"),
   );
 
-  const chatbot = getWork("meridian-assist");
+  const ai = items.filter((item) => item.scope.includes("AI"));
 
   const tools = items.filter((item) => item.kind === "tool");
 
@@ -147,7 +147,7 @@ export default function WorkPage() {
 
         {/* AI */}
 
-        {chatbot ? (
+        {ai.length > 0 ? (
           <section className="mt-20">
             <div className="mb-8 border-b border-white/10 pb-5">
               <p className="text-[11px] uppercase tracking-[0.22em] text-emerald-300">
@@ -166,7 +166,13 @@ export default function WorkPage() {
               </div>
             </div>
 
-            <CaseStudy item={chatbot} />
+            {ai.map((item, i) => (
+              <CaseStudy
+                key={item.slug}
+                item={item}
+                reverse={i % 2 === 1}
+              />
+            ))}
           </section>
         ) : null}
 

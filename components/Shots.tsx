@@ -102,7 +102,7 @@ export function ShotRow({
 }) {
   const showPhones = preview ? phones.slice(0, 3) : phones;
   const showWebs = preview
-    ? webs.slice(0, maxWebShots ?? (phones.length ? 2 : 3))
+    ? webs.slice(0, maxWebShots ?? (phones.length ? 2 : 4))
     : webs;
   const showDesks = preview ? desks.slice(0, 3) : desks;
   const webGrid =
